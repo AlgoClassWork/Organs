@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель</title>
+</head>
+<body>
+
+    <h1> Панель Администратора </h1>
+
+    <h2>Добавить орган</h2>
+    <form action="/admin" method="post">
+        <input type="hidden" name="action" value="add">
+        <input type="text" name="name" placeholder="название"> <br>
+        <input type="text" name="category" placeholder="категория"> <br>
+        <input type="text" name="description" placeholder="описание"> <br>
+        <input type="text" name="price" placeholder="цена"> <br>
+        <input type="text" name="image" placeholder="путь к картинке"> <br>
+        <button type="submit">Добавить</button>
+    </form>
+    
+</body>
+</html>
