@@ -19,6 +19,20 @@
         <input type="text" name="image" placeholder="путь к картинке"> <br>
         <button type="submit">Добавить</button>
     </form>
+
+    <h2>Редактировать</h2>
+    {% for organ in organs %}
+    <form action="/admin" method="post"></form>
+        <input type="hidden" name="id" value="{{ organ[0] }}">
+        <input type="hidden" name="action" value="edit">
+        <input type="text" name="name" placeholder="{{ organ[1] }}"> 
+        <input type="text" name="category" placeholder="{{ organ[2] }}"> 
+        <input type="text" name="description" placeholder="{{ organ[3] }}"> 
+        <input type="text" name="price" placeholder="{{ organ[4] }}"> 
+        <input type="text" name="image" placeholder="{{ organ[5] }}"> 
+        <button type="submit">Сохранить</button>
+    </form>
+    {% endfor %}
     
 </body>
 </html>
