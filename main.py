@@ -9,6 +9,14 @@ def index():
     organs = get_all_organs()
     return render_template('index.html', organs=organs)
 
+@app.route('/detail/<int:id>') 
+def detail(id):
+    organ = get_organ(id)
+    if organ:
+        render_template('detail.html', organ=organ)
+    else:
+        return 'Орган не найден', 404
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
