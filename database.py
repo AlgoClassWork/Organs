@@ -55,4 +55,12 @@ def get_all_organs():
     connection.close()
     return data
 
+def get_organ(id):
+    connection = sqlite3.connect('organs.db')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM organs WHERE id=?', (id,))
+    data = cursor.fetchall()
+    connection.close()
+    return data
+
 create_database()
