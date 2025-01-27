@@ -4,40 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ панель</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
 </head>
 <body>
 
-    <h1> Панель Администратора </h1>
+    <h1>Панель Администратора</h1>
 
-    <h2>Добавить орган</h2>
-    <form action="/admin" method="post">
-        <input type="hidden" name="action" value="add">
-        <input type="text" name="name" placeholder="название"> <br>
-        <input type="text" name="category" placeholder="категория"> <br>
-        <input type="text" name="description" placeholder="описание"> <br>
-        <input type="text" name="price" placeholder="цена"> <br>
-        <input type="text" name="image" placeholder="путь к картинке"> <br>
-        <button type="submit">Добавить</button>
-    </form>
+<h2>Добавить орган</h2>
+<form action="/admin" method="post">
+    <input type="hidden" name="action" value="add">
+    <input type="text" name="name" placeholder="название"> <br>
+    <input type="text" name="category" placeholder="категория"> <br>
+    <input type="text" name="description" placeholder="описание"> <br>
+    <input type="text" name="price" placeholder="цена"> <br>
+    <input type="text" name="image" placeholder="путь к картинке"> <br>
+    <button type="submit">Добавить</button>
+</form>
 
-    <h2>Редактировать</h2>
-    {% for organ in organs %}
-    <form action="/admin" method="post">
-        <input type="hidden" name="action" value="edit">
-        <input type="hidden" name="id" value="{{ organ[0] }}">
-        <input type="text" name="name" value="{{ organ[1] }}"> 
-        <input type="text" name="category" value="{{ organ[2] }}"> 
-        <input type="text" name="description" value="{{ organ[3] }}"> 
-        <input type="text" name="price" value="{{ organ[4] }}"> 
-        <input type="text" name="image" value="{{ organ[5] }}"> 
-        <button type="submit">Сохранить</button>
-    </form>
-    <form action="/admin" method="post">
-        <input type="hidden" name="action" value="delete">
-        <input type="hidden" name="id" value="{{ organ[0] }}">
-        <button type="submit">Удалить</button>
-    </form>
-    {% endfor %}
+<h2>Редактировать</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Путь к картинке</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for organ in organs %}
+        <tr>
+            <form action="/admin" method="post">
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="id" value="{{ organ[0] }}">
+                <td><input type="text" name="name" value="{{ organ[1] }}"></td>
+                <td><input type="text" name="category" value="{{ organ[2] }}"></td>
+                <td><input type="text" name="description" value="{{ organ[3] }}"></td>
+                <td><input type="text" name="price" value="{{ organ[4] }}"></td>
+                <td><input type="text" name="image" value="{{ organ[5] }}"></td>
+                <td><button type="submit">Сохранить</button></td>
+            </form>
+            <form action="/admin" method="post">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" value="{{ organ[0] }}">
+                <td><button type="submit" class="delete">Удалить</button></td>
+            </form>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 </body>
 </html>
