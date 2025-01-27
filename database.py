@@ -32,7 +32,7 @@ def delete_organ(id):
     connection = sqlite3.connect('organs.db')
     cursor = connection.cursor()
 
-    cursor.execute('''DELETE FROM organs WHERE id=? ''', (id))
+    cursor.execute('''DELETE FROM organs WHERE id=? ''', (id,))
 
     connection.commit()
     connection.close()
