@@ -32,9 +32,12 @@
         <input type="text" name="image" value="{{ organ[5] }}"> 
         <button type="submit">Сохранить</button>
     </form>
+    <form action="/admin" method="post">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="id" value="{{ organ[0] }}">
+        <button type="submit">Удалить</button>
+    </form>
     {% endfor %}
 
-    
-    
 </body>
 </html>
