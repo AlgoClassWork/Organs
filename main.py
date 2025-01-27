@@ -24,6 +24,8 @@ def admin():
             add_organ(name, category, description, price, image)
         if action == 'edit':
             update_organ(name, category, description, price, image, id)
+        if action == 'delete':
+            delete_organ(id)
 
     organs = get_all_organs()
     return render_template('admin.html', organs=organs)
