@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{organ[0][1]}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <h1>Магазин товаров</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Главная</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <div class="container">
+            <section class="product-detail">
+                <h2>{{organ[0][1]}}</h2>
+                <img src="{{ url_for('static', filename=organ[0][5]) }}" >
+                <div class="product-info">
+                    <p><strong>Категория:</strong> {{organ[0][2]}}</p>
+                    <p><strong>Описание:</strong> {{organ[0][3]}}</p>
+                    <p><strong>Цена:</strong> {{organ[0][4]}} руб.</p>
+                    <a href="{{ url_for('index') }}" class="back-link">Назад</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Магазин товаров. Все права защищены.</p>
+            <nav>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
